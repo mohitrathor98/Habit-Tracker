@@ -1,9 +1,10 @@
 import requests
 
 SITE = "https://pixe.la/v1/users"
-USERNAME = "mohit98"
-TOKEN = "sadakhk2h3nj8nsa"
+USERNAME = "mohitrathor"
+TOKEN = "sadakhk2h3nj8snsa"
 
+# create user id
 request_body = {
     "token": TOKEN,
     "username": USERNAME,
@@ -11,5 +12,19 @@ request_body = {
     "notMinor": "yes"
 }
 
-response = requests.post(url=SITE, json=request_body)
+# create new graph
+graph_site = f"{SITE}/{USERNAME}/graphs"
+headers = {
+    "X-USER-TOKEN": TOKEN
+}
+graph_request = {
+    "id": "graph1",
+    "name": "Coding Graph",
+    "unit": "commit",
+    "type": "int",
+    "color": "ajisai"
+}
+
+
+response = requests.post(url=graph_site, json=graph_request, headers=headers)
 print(response.text)
