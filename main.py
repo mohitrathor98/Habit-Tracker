@@ -1,4 +1,15 @@
 import requests
+from datetime import date
+
+def get_today_date():
+    today = date.today()
+    month = today.month
+    if month < 10:
+        month = f"0{month}"
+    day = today.day
+    if day < 10:
+        day = f"0{day}"
+    return f"{today.year}{month}{day}"
 
 SITE = "https://pixe.la/v1/users"
 USERNAME = "mohitrathor"
@@ -14,11 +25,12 @@ request_body = {
 
 # create new graph
 graph_site = f"{SITE}/{USERNAME}/graphs"
+graph_id = "graph1"
 headers = {
     "X-USER-TOKEN": TOKEN
 }
 graph_request = {
-    "id": "graph1",
+    "id": graph_id,
     "name": "Coding Graph",
     "unit": "commit",
     "type": "int",
@@ -26,5 +38,13 @@ graph_request = {
 }
 
 
-response = requests.post(url=graph_site, json=graph_request, headers=headers)
+# post the progress
+post_site = f"{SITE}/{USERNAME}/graphs/{graph_id}"
+
+post_body = {
+    "date": get_today_date(),
+    "quantity": input("Number of commits: ")
+}
+
+response = requests.post(url=post_site, json=post_body, headers=headers)
 print(response.text)
