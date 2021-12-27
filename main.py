@@ -1,15 +1,6 @@
 import requests
-from datetime import date
+import datetime as date
 
-def get_today_date():
-    today = date.today()
-    month = today.month
-    if month < 10:
-        month = f"0{month}"
-    day = today.day
-    if day < 10:
-        day = f"0{day}"
-    return f"{today.year}{month}{day}"
 
 SITE = "https://pixe.la/v1/users"
 USERNAME = "mohitrathor"
@@ -41,8 +32,10 @@ graph_request = {
 # post the progress
 post_site = f"{SITE}/{USERNAME}/graphs/{graph_id}"
 
+today = date.datetime.now()
+
 post_body = {
-    "date": get_today_date(),
+    "date": today.strftime("%Y%m%d"),
     "quantity": input("Number of commits: ")
 }
 
