@@ -33,11 +33,19 @@ graph_request = {
 post_site = f"{SITE}/{USERNAME}/graphs/{graph_id}"
 
 today = date.datetime.now()
+date_format = today.strftime("%Y%m%d")
 
 post_body = {
-    "date": today.strftime("%Y%m%d"),
+    "date": date_format,
     "quantity": input("Number of commits: ")
 }
 
-response = requests.post(url=post_site, json=post_body, headers=headers)
-print(response.text)
+# update the progress
+update_site = f"{SITE}/{USERNAME}/graphs/{graph_id}/{date_format}"
+
+update_body = {
+    "quantity": input(f"Update value for {date_format}: ")
+}
+
+response = requests.put(url=update_site, json=update_body, headers=headers)
+print(response.status_code)
