@@ -1,7 +1,6 @@
 import requests
 import datetime as date
 
-
 SITE = "https://pixe.la/v1/users"
 USERNAME = "mohitrathor"
 TOKEN = "sadakhk2h3nj8snsa"
