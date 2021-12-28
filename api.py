@@ -24,7 +24,7 @@ class Pixela:
         }
         
         response = requests.post(url=self.site, json=request_body)
-        return response.text["message"]
+        return response.text
     
     def read_data(self):
         
@@ -57,7 +57,7 @@ class Pixela:
         
         if response.status_code == 200:
             self.dump_data(self.graph_id, graph_name)
-        return response.text["message"]
+        return response.text
 
     def get_graph_id(self, graph_name):
         graph_data = self.read_data()
@@ -79,7 +79,7 @@ class Pixela:
         }
         
         response = requests.post(url=post_site, json=post_body, headers=self.headers)
-        return response.text["message"]
+        return response.text
     
     def update_progress(self, graph_name, quantity):
         
@@ -93,7 +93,7 @@ class Pixela:
         }
         
         response = requests.put(url=update_site, json=update_body, headers=self.headers)
-        return response.text["message"]
+        return response.text
     
     def delete_progress(self, graph_name):
         
@@ -104,4 +104,4 @@ class Pixela:
         delete_site = f"{self.site}/{self.username}/graphs/{self.graph_id}/{self.date_format}"
         
         response = requests.delete(url=delete_site, headers=self.headers)
-        return response.text["message"]
+        return response.text

@@ -3,7 +3,7 @@ from api import Pixela
 while True:
     print("\n1) Create User\n2) Create Graph\n3) Post progress\n4) Update Progress\n5) Delete Progress\n6) Exit\n")
     try:
-        choice = input("Your Choice: ")
+        choice = int(input("Your Choice: "))
     except:
         break
     
@@ -14,10 +14,13 @@ while True:
     
     elif choice == 2:
         graph_id = input("Graph Id: ")
-        graph_name = input("Graph Namr: ")
-        unit = input("Unit for graph(commit/kilogram/calory): ")
+        graph_name = input("Graph Name: ")
+        unit = input("Unit for graph(commit/kilogram/calory/days, etc): ")
         data_type = input("Data type(int/float): ")
         
         print(pixela_ob.create_new_graph(graph_id, graph_name, unit, data_type))
+    
+    else:
+        break
         
     
