@@ -11,3 +11,13 @@ while True:
     if choice == 1:
         username = input("Username: ")
         print(pixela_ob.create_user(username))
+    
+    elif choice == 2:
+        graph_id = input("Graph Id: ")
+        graph_name = input("Graph Namr: ")
+        unit = input("Unit for graph(commit/kilogram/calory): ")
+        data_type = input("Data type(int/float): ")
+        
+        print(pixela_ob.create_new_graph(graph_id, graph_name, unit, data_type))
+        
+    
