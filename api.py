@@ -80,7 +80,7 @@ class Pixela:
         
         self.get_graph_id(graph_name)
         if self.graph_id == None:
-            return "Invalid graph name"
+            return "\nInvalid graph name"
 
         post_site = f"{self.site}/{self.username}/graphs/{self.graph_id}"
         post_body = {
@@ -95,7 +95,7 @@ class Pixela:
         
         self.get_graph_id(graph_name)
         if self.graph_id == None:
-            return "Invalid graph name"
+            return "\nInvalid graph name"
         
         update_site = f"{self.site}/{self.username}/graphs/{self.graph_id}/{self.date_format}"
         update_body = {
@@ -109,7 +109,7 @@ class Pixela:
         
         self.get_graph_id(graph_name)
         if self.graph_id == None:
-            return "Invalid graph name"
+            return "\nInvalid graph name"
         
         delete_site = f"{self.site}/{self.username}/graphs/{self.graph_id}/{self.date_format}"
         

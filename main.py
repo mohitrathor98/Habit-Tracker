@@ -26,6 +26,17 @@ while True:
         
         print(pixela_ob.post_progress(graph_name, quantity))
     
+    elif choice == 4:
+        graph_name = input("Graph Name: ")
+        quantity = input("Quantity to update: ")
+        
+        print(pixela_ob.update_progress(graph_name, quantity))
+        
+    elif choice == 5:
+        graph_name = input("Graph Name: ")
+        
+        print(pixela_ob.delete_progress(graph_name))
+    
     else:
         break
         
