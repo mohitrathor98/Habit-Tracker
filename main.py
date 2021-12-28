@@ -20,6 +20,9 @@ while True:
         
         print(pixela_ob.create_new_graph(graph_id, graph_name, unit, data_type))
     
+    elif choice == 3:
+        graph_name = input
+    
     else:
         break
         

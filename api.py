@@ -37,7 +37,12 @@ class Pixela:
     def dump_data(self, graph_id, graph_name):
         
         data = self.read_data()
-        data[graph_id] = graph_name
+        if self.username in data.keys():
+            data[self.username][graph_id] = graph_name
+        else:
+            data[self.username] = {}
+            data[self.username][graph_id] = graph_name   
+            
         with open("graph_data.json", "w") as file:
             json.dump(data, file, indent=4)
         
@@ -60,9 +65,14 @@ class Pixela:
         return response.text
 
     def get_graph_id(self, graph_name):
+        
         graph_data = self.read_data()
         self.graph_id = None
-        for key, values in graph_data.items():
+        
+        if self.username not in graph_data.keys():
+            return
+        
+        for key, values in graph_data[self.username].items():
             if values == graph_name:
                 self.graph_id = key
     
