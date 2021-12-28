@@ -21,7 +21,10 @@ while True:
         print(pixela_ob.create_new_graph(graph_id, graph_name, unit, data_type))
     
     elif choice == 3:
-        graph_name = input
+        graph_name = input("Graph Name: ")
+        quantity = input("Post quantity: ")
+        
+        print(pixela_ob.post_progress(graph_name, quantity))
     
     else:
         break
